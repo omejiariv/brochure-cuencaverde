@@ -5,13 +5,16 @@ import os
 # Configuración inicial
 st.set_page_config(page_title="Portafolio CuencaVerde", page_icon="💧", layout="wide")
 
-# Función para cargar la imagen de fondo de manera robusta
+# --- 1. SOLUCIÓN AL FONDO (Ruta Absoluta) ---
+# Esto obliga a Streamlit a buscar la imagen exactamente en la misma carpeta donde está este script.
+current_dir = os.path.dirname(os.path.abspath(__file__))
+bg_image_path = os.path.join(current_dir, "embalse.jpg") 
+
 def set_background(image_path):
     if os.path.exists(image_path):
         with open(image_path, "rb") as image_file:
             encoded_string = base64.b64encode(image_file.read()).decode()
         
-        # Inyectar CSS para el fondo y el efecto Glassmorphism optimizado
         st.markdown(f"""
         <style>
         .stApp {{
@@ -21,30 +24,31 @@ def set_background(image_path):
             background-attachment: fixed;
         }}
         
-        /* Contenedor principal ampliado y ajustado */
         .block-container {{
             background-color: rgba(255, 255, 255, 0.92) !important;
             backdrop-filter: blur(12px) !important;
             -webkit-backdrop-filter: blur(12px) !important;
             border-radius: 20px;
-            padding: 2.5rem 4rem !important; /* Menos espacio muerto, más contenido */
+            padding: 3rem 4rem !important;
             margin-top: 2rem;
             margin-bottom: 2rem;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            max-width: 90% !important; /* Aumenta el lienzo para aprovechar pantallas anchas */
+            max-width: 95% !important; /* Lienzo aún más ancho */
         }}
         
-        /* Ocultar elementos por defecto de Streamlit */
         header {{ visibility: hidden; }}
         #MainMenu {{ visibility: hidden; }}
         footer {{ visibility: hidden; }}
         </style>
         """, unsafe_allow_html=True)
+    else:
+        # Si la ruta falla, te mostrará este error en la pantalla para que sepamos qué buscar
+        st.error(f"⚠️ No se encontró la imagen de fondo. Asegúrate de que el archivo se llame exactamente 'image_da4369.jpg' y esté en la misma carpeta.")
 
 # Llamar a la función del fondo
-set_background("image_da4369.jpg")
+set_background(bg_image_path)
 
-# Inyectar CSS personalizado para fuentes más grandes y tarjetas
+# --- 2. SOLUCIÓN AL TAMAÑO DE TEXTO (CSS Agresivo) ---
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800;900&display=swap');
@@ -53,14 +57,21 @@ st.markdown("""
         font-family: 'Montserrat', sans-serif;
     }
 
-    /* Textos generales más grandes */
-    div[data-testid="stMarkdownContainer"] p {
-        font-size: 1.15rem;
-        line-height: 1.6;
+    /* FORZAR TAMAÑO MUCHO MÁS GRANDE EN LAS TARJETAS */
+    div[data-testid="stAlert"] p {
+        font-size: 1.35rem !important; /* Texto base del decálogo más grande */
+        line-height: 1.6 !important;
+    }
+    
+    /* Títulos en negrita dentro de las tarjetas */
+    div[data-testid="stAlert"] p strong {
+        font-size: 1.45rem !important; 
+        color: #065f46; /* Toque verde para resaltarlos */
     }
 
+    /* Títulos de la cabecera */
     .hero-title {
-        font-size: 3.5rem !important; /* Título más grande */
+        font-size: 3.8rem !important;
         font-weight: 900 !important;
         background: -webkit-linear-gradient(45deg, #065f46, #0284c7);
         -webkit-background-clip: text;
@@ -70,38 +81,14 @@ st.markdown("""
     }
 
     .hero-subtitle {
-        font-size: 1.4rem !important; /* Subtítulo más grande */
+        font-size: 1.6rem !important;
         color: #334155;
         font-weight: 800;
         margin-top: 0;
+        margin-bottom: 1rem;
     }
 
-    /* Estilo Premium para la Cita de Liderazgo */
-    .quote-box {
-        background: linear-gradient(to right, rgba(6, 95, 70, 0.05), rgba(2, 132, 199, 0.05));
-        border-left: 5px solid #065f46;
-        padding: 1.8rem;
-        border-radius: 0 16px 16px 0;
-        margin: 1.5rem 0;
-        font-style: italic;
-    }
-    
-    .quote-text {
-        color: #1e293b;
-        font-size: 1.35rem;
-        font-weight: 600;
-        line-height: 1.5;
-        margin-bottom: 0.8rem;
-    }
-    
-    .quote-author {
-        color: #065f46;
-        font-weight: 800;
-        font-size: 1.1rem;
-        text-align: right;
-    }
-
-    /* Estilo para simular tarjetas corporativas limpias */
+    /* Estilo de las tarjetas (fondo blanco y sombra) */
     div[data-testid="stAlert"] {
         background-color: #ffffff !important;
         border-radius: 12px !important;
@@ -109,55 +96,57 @@ st.markdown("""
         color: #1e293b !important;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
         transition: all 0.3s ease;
-        padding: 1.2rem !important;
+        padding: 1.5rem !important;
         height: 100%;
     }
     
-    /* El ícono de las alertas se oculta para un look más limpio */
     div[data-testid="stAlert"] svg {
-        display: none;
+        display: none; /* Oculta los iconos genéricos */
     }
 
     div[data-testid="stAlert"]:hover {
         transform: translateY(-5px);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1) !important;
         border-color: #065f46 !important;
     }
 
+    /* Botón de contacto */
     div[data-testid="stButton"] button {
         background: linear-gradient(135deg, #065f46 0%, #047857 100%) !important;
         color: white !important;
         border-radius: 30px !important;
         font-weight: 800 !important;
-        font-size: 1.2rem !important;
-        padding: 0.6rem 2.5rem !important;
+        font-size: 1.3rem !important;
+        padding: 0.8rem 3rem !important;
         border: none !important;
         box-shadow: 0 4px 14px 0 rgba(5,150,105,0.39) !important;
     }
 </style>
 """, unsafe_allow_html=True)
 
-# --- CONTENIDO ---
+# --- 3. CONTENIDO (CON EL ERROR DE SINTAXIS CORREGIDO) ---
 
 # Cabecera (Hero Section)
 col_logo, col_texto = st.columns([1, 5])
 with col_logo:
-    st.image("CuencaVerde Logo.jpg", width=160)
+    st.image("CuencaVerde Logo.jpg", width=180)
 with col_texto:
     st.markdown('<p class="hero-title">Invertir en la naturaleza es invertir en nuestro futuro</p>', unsafe_allow_html=True)
     st.markdown('<p class="hero-subtitle">Portafolio de Valor Compartido y Servicios Especializados para Asociados y Aliados.</p>', unsafe_allow_html=True)
-    st.markdown("*"Tenemos la oportunidad de transformar positivamente la realidad colectiva de este magico territorio con el que estamos comprometidos y entrelazados"
-.*")
+    
+    # SINTAXIS CORREGIDA: Comillas simples por fuera, dobles por dentro, en una sola línea.
+    st.markdown('*"Tenemos la oportunidad de transformar positivamente la realidad colectiva de este mágico territorio con el que estamos comprometidos y entrelazados."* — **MC de La Ossa**')
 
-# Sección de Beneficios
-st.markdown("<h2 style='color:#0f172a; font-weight:800; margin-top:1.5rem; margin-bottom: 0.5rem;'>Nuestra Promesa de Valor</h2>", unsafe_allow_html=True)
-# Párrafo estratégico integrado directamente debajo del título
-st.markdown("<p style='font-size: 1.25rem; font-weight: 500; color: #334155; margin-bottom: 1.5rem;'>Hemos diseñado un portafolio de beneficios tangibles y especializados que impulsan la competitividad, el cumplimiento normativo y la eficiencia financiera de su organización, mientras construimos juntos La Seguridad Hídrica que requiere nuestra región.</p>", unsafe_allow_html=True)
+# Sección de Promesa de Valor
+st.markdown("<h2 style='color:#0f172a; font-weight:800; font-size: 2.2rem; margin-top:2rem; margin-bottom: 0.5rem;'>Nuestra Promesa de Valor</h2>", unsafe_allow_html=True)
+
+# Párrafo estratégico más grande y legible
+st.markdown("<p style='font-size: 1.4rem; font-weight: 500; color: #334155; margin-bottom: 2rem; line-height: 1.6;'>Hemos diseñado un portafolio de beneficios tangibles y especializados que impulsan la competitividad, el cumplimiento normativo y la eficiencia financiera de su organización, mientras construimos juntos La Seguridad Hídrica que requiere nuestra región.</p>", unsafe_allow_html=True)
 
 tab1, tab2 = st.tabs(["🌟 Servicios Especializados y Valor Compartido", "📈 Visión Estratégica ESG"])
 
 with tab1:
-    st.markdown("### Decálogo de Beneficios Específicos")
+    st.markdown("<h3 style='font-size: 1.8rem; margin-bottom: 1rem;'>Decálogo de Beneficios Específicos</h3>", unsafe_allow_html=True)
     c1, c2, c3 = st.columns(3)
     
     with c1:
@@ -168,8 +157,6 @@ with tab1:
     with c2:
         st.success("**2. Formación de Alto Nivel**\n\nCupos en espacios sobre seguridad hídrica y conservación.")
         st.success("**5. Medición de Impacto**\n\nCálculo especializado de huellas de agua y carbono corporativas.")
-        
-        # Tarjeta de ROI utilizando st.warning para destacarla naturalmente
         st.warning("**8. Alto Retorno de Inversión (ROI)**\n\nGarantía de que las inversiones con CuencaVerde en conservación, restauración, o en Prácticas Agropecuarias Sostenibles, tienen un **ROI menor a 10 años y una tasa de retorno superior a 1,5**.")
 
     with c3:
@@ -179,7 +166,7 @@ with tab1:
         st.info("**10. Beneficios Tributarios**\n\nDescuento en renta del 25% del valor donado (Estatuto Tributario Colombiano, Art. 257).")
 
 with tab2:
-    st.markdown("### Beneficios Clave a Largo Plazo")
+    st.markdown("<h3 style='font-size: 1.8rem; margin-bottom: 1rem;'>Beneficios Clave a Largo Plazo</h3>", unsafe_allow_html=True)
     c4, c5 = st.columns(2)
     with c4:
         st.info("**Seguridad Hídrica a Largo Plazo**\nGarantiza disponibilidad y calidad del agua para operaciones.")
@@ -191,8 +178,8 @@ with tab2:
 st.divider()
 
 # Sección de Contacto
-st.subheader("Eficiencia y Transparencia en su Inversión")
-st.write("Aseguramos que sus recursos se ejecuten a través de un mecanismo estructurado, auditable y enfocado en generar resultados cuantificables en el territorio.")
+st.markdown("<h3 style='font-size: 1.8rem;'>Eficiencia y Transparencia en su Inversión</h3>", unsafe_allow_html=True)
+st.markdown("<p style='font-size: 1.3rem; color: #475569;'>Aseguramos que sus recursos se ejecuten a través de un mecanismo estructurado, auditable y enfocado en generar resultados cuantificables en el territorio.</p>", unsafe_allow_html=True)
 
 col_btn1, col_btn2, col_btn3 = st.columns([1, 2, 1])
 with col_btn2:
