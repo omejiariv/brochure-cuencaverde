@@ -129,7 +129,7 @@ st.markdown("""
 # Cabecera (Hero Section)
 col_logo, col_texto = st.columns([1, 5])
 with col_logo:
-    st.image("CuencaVerde Logo.jpg", width=180)
+    st.image("CuencaVerde Logo.jpg", width=90)
 with col_texto:
     st.markdown('<p class="hero-title">Invertir en la naturaleza es invertir en nuestro futuro</p>', unsafe_allow_html=True)
     st.markdown('<p class="hero-subtitle">Portafolio de Valor Compartido y Servicios Especializados para Asociados y Aliados.</p>', unsafe_allow_html=True)
