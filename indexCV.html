@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio CuencaVerde</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            /* Imagen de fondo anclada */
+            background-image: url('image_da4369.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Efecto Cristal (Glassmorphism) */
+        .glass-container {
+            background-color: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Textos con gradiente */
+        .text-gradient {
+            background: linear-gradient(45deg, #065f46, #0284c7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Botón animado */
+        .btn-primary {
+            background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+            box-shadow: 0 4px 14px 0 rgba(5,150,105,0.39);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: scale(1.02) translateY(-2px);
+            box-shadow: 0 6px 20px rgba(5,150,105,0.4);
+        }
+
+        /* Ocultar contenido inactivo de las pestañas */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen py-6 px-4 md:py-12 md:px-8">
+
+    <main class="glass-container max-w-7xl mx-auto rounded-3xl p-6 md:p-12 lg:p-16 border border-white/40">
+        
+        <header class="flex flex-col md:flex-row items-center md:items-start gap-8 mb-10">
+            <div class="flex-shrink-0">
+                <img src="CuencaVerde Logo.jpg" alt="Logo CuencaVerde" class="w-40 md:w-48 bg-white p-2 rounded-2xl shadow-md object-contain">
+            </div>
+            <div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-gradient leading-tight mb-4 text-center md:text-left">
+                    Invertir en la naturaleza es invertir en nuestro futuro
+                </h1>
+                <h2 class="text-xl md:text-2xl font-extrabold text-slate-800 mb-2 text-center md:text-left">
+                    Portafolio de Valor Compartido y Servicios Especializados para Asociados y Aliados.
+                </h2>
+                <p class="text-lg text-slate-600 italic font-medium text-center md:text-left">
+                    Ser aliado de CuencaVerde trasciende la filantropía; es una inversión estratégica en Seguridad Hídrica; Esencial para la Sostenibilidad.
+                </p>
+            </div>
+        </header>
+
+        <div class="bg-gradient-to-r from-emerald-50/80 to-sky-50/80 border-l-4 border-emerald-700 p-6 md:p-8 rounded-r-2xl mb-12 shadow-sm">
+            <p class="text-lg md:text-xl font-semibold text-slate-800 italic leading-relaxed mb-4">
+                "TENEMOS LA OPORTUNIDAD DE TRANSFORMAR POSITIVAMENTE NUESTRA REALIDAD COLECTIVA DE ESTE MÁGICO TERRITORIO CON EL QUE ESTAMOS COMPROMETIDOS Y ENTRELAZADOS."
+            </p>
+            <p class="text-right text-emerald-800 font-bold text-lg md:text-xl">— MC de La Ossa</p>
+        </div>
+
+        <section class="mb-12">
+            <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-6">Nuestra Promesa de Valor</h2>
+            <p class="text-xl font-medium text-slate-700 leading-relaxed mb-8">
+                Hemos diseñado un portafolio de beneficios tangibles y especializados que impulsan la competitividad, el cumplimiento normativo y la eficiencia financiera de su organización, mientras construimos juntos La Seguridad Hídrica que requiere nuestra región.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-8 border-b-2 border-slate-200 pb-4">
+                <button onclick="openTab('servicios')" id="btn-servicios" class="text-left sm:text-center px-6 py-3 font-bold text-lg rounded-xl transition-all bg-emerald-600 text-white shadow-md">
+                    🌟 Servicios Especializados
+                </button>
+                <button onclick="openTab('vision')" id="btn-vision" class="text-left sm:text-center px-6 py-3 font-bold text-lg rounded-xl transition-all text-slate-500 hover:bg-slate-100 hover:text-slate-800">
+                    📈 Visión Estratégica ESG
+                </button>
+            </div>
+
+            <div id="servicios" class="tab-content active">
+                <h3 class="text-2xl font-bold text-slate-800 mb-6">Decálogo de Beneficios Específicos</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <div class="bg-white/90 border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-emerald-500 transition-all">
+                        <p class="font-bold text-emerald-800 text-xl mb-2">1. Visibilidad Institucional</p>
+                        <p class="text-slate-700 text-lg">Inclusión destacada en los Informes Anuales de Gestión.</p>
+                    </div>
+
+                    <div class="bg-white/90 border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-emerald-500 transition-all">
+                        <p class="font-bold text-emerald-800 text-xl mb-2">2. Formación de Alto Nivel</p>
+                        <p class="text-slate-700 text-lg">Cupos en espacios sobre seguridad hídrica y conservación.</p>
+                    </div>
+
+                    <div class="bg-white/90 border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-emerald-500 transition-all">
+                        <p class="font-bold text-emerald-800 text-xl mb-2">3. Inteligencia de Datos</p>
+                        <p class="text-slate-700 text-lg">Acceso al Sistema de Inteligencia Hidroterritorial.</p>
+                    </div>
+
+                    <div class="bg-white/90 border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-emerald-500 transition-all">
+                        <p class="font-bold text-emerald-800 text-xl mb-2">4. Asesoría en Reportes</p>
+                        <p class="text-slate-700 text-lg">Acompañamiento técnico para Informes de Sostenibilidad.</p>
+                    </div>
+
+                    <div class="bg-white/90 border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-emerald-500 transition-all">
+                        <p class="font-bold text-emerald-800 text-xl mb-2">5. Medición de Impacto</p>
+                        <p class="text-slate-700 text-lg">Cálculo especializado de huellas de agua y carbono corporativas.</p>
+                    </div>
+
+                    <div class="bg-white/90 border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-emerald-500 transition-all">
+                        <p class="font-bold text-emerald-800 text-xl mb-2">6. Gobernanza del Agua</p>
+                        <p class="text-slate-700 text-lg">Voz activa en la Mesa Territorial de Seguridad Hídrica.</p>
+                    </div>
+
+                    <div class="bg-white/90 border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-emerald-500 transition-all">
+                        <p class="font-bold text-emerald-800 text-xl mb-2">7. Neutralidad Hídrica</p>
+                        <p class="text-slate-700 text-lg">Hoja de ruta para alcanzar metas de neutralidad climática.</p>
+                    </div>
+
+                    <div class="bg-yellow-50 border-2 border-yellow-400 p-6 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all">
+                        <p class="font-black text-yellow-800 text-xl mb-3">8. Alto Retorno de Inversión (ROI)</p>
+                        <p class="text-slate-800 text-lg font-medium">Garantía de que las inversiones con CuencaVerde en conservación, restauración, o en Prácticas Agropecuarias Sostenibles, tienen un <strong>ROI menor a 10 años y una tasa de retorno superior a 1,5</strong>.</p>
+                    </div>
+
+                    <div class="bg-white/90 border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-emerald-500 transition-all">
+                        <p class="font-bold text-emerald-800 text-xl mb-2">9. Cumplimiento Normativo</p>
+                        <p class="text-slate-700 text-lg">Implementación de la Ley del Árbol (Ley 2173).</p>
+                    </div>
+
+                    <div class="bg-sky-50 border-2 border-sky-300 p-6 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all md:col-span-2 lg:col-span-3">
+                        <p class="font-black text-sky-800 text-xl mb-2">10. Beneficios Tributarios</p>
+                        <p class="text-slate-800 text-lg font-medium">Descuento en renta del 25% del valor donado (Estatuto Tributario Colombiano, Art. 257).</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="vision" class="tab-content">
+                <h3 class="text-2xl font-bold text-slate-800 mb-6">Beneficios Clave a Largo Plazo</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white/90 border border-slate-200 p-8 rounded-2xl shadow-sm">
+                        <p class="font-bold text-blue-800 text-xl mb-3">Seguridad Hídrica a Largo Plazo</p>
+                        <p class="text-slate-700 text-lg">Garantiza disponibilidad y calidad del agua para operaciones.</p>
+                    </div>
+                    <div class="bg-white/90 border border-slate-200 p-8 rounded-2xl shadow-sm">
+                        <p class="font-bold text-blue-800 text-xl mb-3">Fortalecimiento Reputacional</p>
+                        <p class="text-slate-700 text-lg">Eleva el posicionamiento de marca con un compromiso genuino.</p>
+                    </div>
+                    <div class="bg-white/90 border border-slate-200 p-8 rounded-2xl shadow-sm">
+                        <p class="font-bold text-blue-800 text-xl mb-3">Cumplimiento de Metas ESG</p>
+                        <p class="text-slate-700 text-lg">Aporta a los ODS e indicadores de sostenibilidad.</p>
+                    </div>
+                    <div class="bg-white/90 border border-slate-200 p-8 rounded-2xl shadow-sm">
+                        <p class="font-bold text-blue-800 text-xl mb-3">Mitigación de Riesgos</p>
+                        <p class="text-slate-700 text-lg">Reduce vulnerabilidad frente a escasez hídrica.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-slate-300 my-10">
+        <section class="text-center max-w-4xl mx-auto">
+            <h3 class="text-3xl font-bold text-slate-900 mb-4">Eficiencia y Transparencia en su Inversión</h3>
+            <p class="text-xl text-slate-700 mb-10">
+                Aseguramos que sus recursos se ejecuten a través de un mecanismo estructurado, auditable y enfocado en generar resultados cuantificables en el territorio.
+            </p>
+            <a href="#" class="btn-primary inline-block text-white font-bold text-xl px-10 py-4 rounded-full w-full sm:w-auto">
+                Contactar al equipo de Alianzas
+            </a>
+        </section>
+
+    </main>
+
+    <script>
+        function openTab(tabName) {
+            // Ocultar contenidos
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Reiniciar estilo de botones
+            const btnServicios = document.getElementById('btn-servicios');
+            const btnVision = document.getElementById('btn-vision');
+            
+            btnServicios.className = "text-left sm:text-center px-6 py-3 font-bold text-lg rounded-xl transition-all text-slate-500 hover:bg-slate-100 hover:text-slate-800";
+            btnVision.className = "text-left sm:text-center px-6 py-3 font-bold text-lg rounded-xl transition-all text-slate-500 hover:bg-slate-100 hover:text-slate-800";
+            
+            // Mostrar contenido activo y aplicar estilo al botón
+            document.getElementById(tabName).classList.add('active');
+            
+            if (tabName === 'servicios') {
+                btnServicios.className = "text-left sm:text-center px-6 py-3 font-bold text-lg rounded-xl transition-all bg-emerald-600 text-white shadow-md";
+            } else {
+                btnVision.className = "text-left sm:text-center px-6 py-3 font-bold text-lg rounded-xl transition-all bg-blue-600 text-white shadow-md";
+            }
+        }
+    </script>
+</body>
+</html>
