@@ -6,7 +6,7 @@ st.set_page_config(page_title="Portafolio CuencaVerde", page_icon="💧", layout
 # Cabecera (Hero Section)
 col_logo, col_texto = st.columns([1, 4])
 with col_logo:
-    st.image("CuencaVerde Logo_2.jpg", width=180)
+    st.image("CuencaVerde Logo.jpg", width=180)
 with col_texto:
     st.title("Invertir en la naturaleza es asegurar nuestro futuro.")
     st.markdown("#### Portafolio de Valor Compartido y Servicios Especializados para Asociados y Aliados.")
