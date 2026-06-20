@@ -42,7 +42,7 @@ def set_background(image_path):
         """, unsafe_allow_html=True)
 
 # Llamar a la función del fondo (asegúrate de que el nombre del archivo sea exacto)
-set_background("image_da4369.jpg")
+set_background("embalse.jpg")
 
 # Inyectar CSS personalizado para fuentes y tarjetas
 st.markdown("""
@@ -142,7 +142,7 @@ st.markdown("""
 # Cabecera (Hero Section)
 col_logo, col_texto = st.columns([1, 4])
 with col_logo:
-    st.image("CuencaVerde Logo.jpg", width=90)
+    st.image("CuencaVerde Logo.jpg", width=140)
 with col_texto:
     st.markdown('<p class="hero-title">Invertir en la naturaleza es invertir en nuestro futuro</p>', unsafe_allow_html=True)
     st.markdown('<p class="hero-subtitle">Portafolio de Valor Compartido y Servicios Especializados para Asociados y Aliados.</p>', unsafe_allow_html=True)
