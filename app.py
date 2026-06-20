@@ -129,7 +129,7 @@ st.markdown("""
 # Cabecera (Hero Section)
 col_logo, col_texto = st.columns([1, 5])
 with col_logo:
-    st.image("CuencaVerde Logo.jpg", width=90)
+    st.image("CuencaVerde Logo.jpg", width=100)
 with col_texto:
     st.markdown('<p class="hero-title">Invertir en la naturaleza es invertir en nuestro futuro</p>', unsafe_allow_html=True)
     st.markdown('<p class="hero-subtitle">Portafolio de Valor Compartido y Servicios Especializados para Asociados y Aliados.</p>', unsafe_allow_html=True)
@@ -174,8 +174,6 @@ with tab2:
     with c5:
         st.info("**Cumplimiento de Metas ESG**\nAporta a los ODS e indicadores de sostenibilidad.")
         st.info("**Mitigación de Riesgos**\nReduce vulnerabilidad frente a escasez hídrica.")
-
-st.divider()
 
 # Sección de Contacto
 st.markdown("<h3 style='font-size: 1.8rem;'>Eficiencia y Transparencia en su Inversión</h3>", unsafe_allow_html=True)
