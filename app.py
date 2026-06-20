@@ -8,7 +8,7 @@ col_logo, col_texto = st.columns([1, 4])
 with col_logo:
     st.image("CuencaVerde Logo.jpg", width=180)
 with col_texto:
-    st.title("Invertir en la naturaleza es asegurar nuestro futuro.")
+    st.title("Invertir en la naturaleza es invertir en nuestro futuro")
     st.markdown("#### Portafolio de Valor Compartido y Servicios Especializados para Asociados y Aliados.")
     st.markdown("*Ser aliado de CuencaVerde trasciende la filantropía; es una inversión estratégica para proteger el agua del Valle de Aburrá.*")
 
