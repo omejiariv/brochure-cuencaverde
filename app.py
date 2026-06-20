@@ -31,7 +31,7 @@ with tab1:
         st.success("**2. Formación de Alto Nivel**\n\nCupos en espacios sobre seguridad hídrica y conservación.")
         st.success("**5. Medición de Impacto**\n\nCálculo especializado de huellas de agua y carbono corporativas.")
         st.success("**8. Plataforma Documental**\n\nAcceso a estudios sobre oferta y demanda de agua.")
-        st.info("**10. Beneficios Tributarios**\n\nDescuento en renta del 25% del valor donado (Art. 257).")
+        st.info("**10. Beneficios Tributarios**\n\nDescuento en renta del 25% del valor donado (Estatuto Tributario Colombiano, Art. 257).")
 
     with c3:
         st.success("**3. Inteligencia de Datos**\n\nAcceso al Sistema de Inteligencia Hidroterritorial.")
