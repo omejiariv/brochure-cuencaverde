@@ -141,7 +141,7 @@ with col_texto:
 st.markdown("<h2 style='color:#0f172a; font-weight:800; font-size: 2.2rem; margin-top:2rem; margin-bottom: 0.5rem;'>Nuestra Promesa de Valor</h2>", unsafe_allow_html=True)
 
 # Párrafo estratégico más grande y legible
-st.markdown("<p style='font-size: 1.4rem; font-weight: 500; color: #334155; margin-bottom: 2rem; line-height: 1.6;'>Hemos diseñado un portafolio de beneficios tangibles y especializados que impulsan la competitividad, el cumplimiento normativo y la eficiencia financiera de su organización, mientras construimos juntos La Seguridad Hídrica que requiere nuestra región.</p>", unsafe_allow_html=True)
+st.markdown("<p style='font-size: 1.5rem; font-weight: 550; color: #334155; margin-bottom: 2rem; line-height: 1.7;'>Hemos diseñado un portafolio de beneficios tangibles y especializados que impulsan la competitividad, el cumplimiento normativo y la eficiencia financiera de su organización, mientras construimos juntos La Seguridad Hídrica que requiere nuestra región.</p>", unsafe_allow_html=True)
 
 tab1, tab2 = st.tabs(["🌟 Servicios Especializados y Valor Compartido", "📈 Visión Estratégica ESG"])
 
