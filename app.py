@@ -146,15 +146,8 @@ with col_logo:
 with col_texto:
     st.markdown('<p class="hero-title">Invertir en la naturaleza es invertir en nuestro futuro</p>', unsafe_allow_html=True)
     st.markdown('<p class="hero-subtitle">Portafolio de Valor Compartido y Servicios Especializados para Asociados y Aliados.</p>', unsafe_allow_html=True)
-    st.markdown("*Ser aliado de CuencaVerde trasciende la filantropía; es una inversión estratégica en Seguridad Hídrica; Esencial para la Sostenibilidad.*")
-
-# Cita de Liderazgo 
-st.markdown("""
-<div class="quote-box">
-    <div class="quote-text">"TENEMOS LA OPORTUNIDAD DE TRANSFORMAR POSITIVAMENTE NUESTRA REALIDAD COLECTIVA DE ESTE MÁGICO TERRITORIO CON EL QUE ESTAMOS COMPROMETIDOS Y ENTRELAZADOS."</div>
-    <div class="quote-author">— MC de La Ossa</div>
-</div>
-""", unsafe_allow_html=True)
+    st.markdown("*"Tenemos la oportunidad de transformar positivamente la realidad colectiva de este magico territorio con el que estamos comprometidos y entrelazados"
+.*")
 
 # Sección de Beneficios
 st.markdown("<h2 style='color:#0f172a; font-weight:800; margin-top:1.5rem; margin-bottom: 0.5rem;'>Nuestra Promesa de Valor</h2>", unsafe_allow_html=True)
